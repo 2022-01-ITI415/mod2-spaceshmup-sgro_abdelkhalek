@@ -47,6 +47,9 @@ public class Enemy_5 : Enemy
             }
         }
     }
+    //This is the code needed to create the rotation required   
+    //void Update() 
+    //{transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime * 7);}
 
     void InitMovement()
     {
