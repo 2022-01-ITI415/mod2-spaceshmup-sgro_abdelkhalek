@@ -29,8 +29,9 @@ public class Enemy_5 : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        GameObject theHero = GameObject.Find("_Hero");
-        Hero heroscript = theHero.GetComponent<Hero>();
+        // Imports the Hero script and grabs the pos.x and pos.y variables from it
+        GameObject.Find("_Hero").GetComponent<Hero>().pos.x;
+        GameObject.Find("_Hero").GetComponent<Hero>().pos.y;
 
         p0 = p1 = pos;
 
@@ -59,8 +60,8 @@ public class Enemy_5 : Enemy
         // Assign a new on-screen location to p1
         float widMinRad = bndCheck.camWidth - bndCheck.radius;
         float hgtMinRad = bndCheck.camHeight - bndCheck.radius;
-        p1.x = Hero.pos.x;
-        p1.y = Hero.pos.y;
+        //p1.x = Hero.pos.x;
+        //p1.y = Hero.pos.y;
 
         // Reset the time
         timeStart = Time.time;
