@@ -35,6 +35,9 @@ public class Enemy_5 : Enemy
 
         p0 = p1 = pos;
 
+        //p1.x = Hero.pos.x;
+        //p1.y = Hero.pos.y;
+
         InitMovement();
 
         Transform t;
@@ -60,26 +63,17 @@ public class Enemy_5 : Enemy
         // Assign a new on-screen location to p1
         float widMinRad = bndCheck.camWidth - bndCheck.radius;
         float hgtMinRad = bndCheck.camHeight - bndCheck.radius;
-        //p1.x = Hero.pos.x;
-        //p1.y = Hero.pos.y;
-
         // Reset the time
         timeStart = Time.time;
     }
 
     public override void Move()
     {
-        // This completely overrides Enemy.Move() with a linear interpolation
-        float u = (Time.time - timeStart) / duration;
-
-        if (u >= 1)
-        {
-            InitMovement();
-            u = 0;
-        }
-
-        u = 1 - Mathf.Pow(1 - u, 2); // Apply Ease Out easing to u
-        pos = ((1 - u) * p0) + (u * p1);// Simple linear interpolation
+        Vector3 tempPos = pos;
+        
+        //p1.x = Hero.pos.x;
+        //p1.y = Hero.pos.y;
+        base.Move();
     }
 
     Part FindPart(string n)
