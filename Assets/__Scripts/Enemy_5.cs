@@ -30,8 +30,8 @@ public class Enemy_5 : Enemy
     void Start()
     {
         // Imports the Hero script and grabs the pos.x and pos.y variables from it
-        GameObject.Find("_Hero").GetComponent<Hero>().pos.x;
-        GameObject.Find("_Hero").GetComponent<Hero>().pos.y;
+        // GameObject.Find("_Hero").GetComponent<Hero>().pos.x;
+        // GameObject.Find("_Hero").GetComponent<Hero>().pos.y;
 
         p0 = p1 = pos;
 
