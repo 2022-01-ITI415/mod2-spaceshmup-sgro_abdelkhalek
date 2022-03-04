@@ -6,7 +6,7 @@ public class Enemy_5 : Enemy
 {
     [Header("Set in Inspector: Enemy_5")]
 
-    private Vector3 p0, p1; // The two points to interpolate
+  
     private float timeStart; // Birth time for this Enemy_4
     private float duration = 4; // Duration of movement
     private float birthTime;
@@ -17,7 +17,7 @@ public class Enemy_5 : Enemy
     {
         count = 0;
         birthTime = Time.time;
-        p0 = p1 = pos;
+        
         InitMovement();
     }
     //This is the code needed to create the rotation required and gets the position of the hero
@@ -26,6 +26,13 @@ public class Enemy_5 : Enemy
         Vector3 heroPos = Hero.S.gameObject.transform.position;
         
         transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime * 7);
+
+        Vector3 pos = heroPos;
+        
+         if(showingDamage && Time.time > damageDoneTime)
+        {
+            UnShowDamage();
+        }
         
     }
 
@@ -39,8 +46,9 @@ public class Enemy_5 : Enemy
     }
 
     // This changes the color to white instead of red for the whole ship when it takes damage
-    void ShowDamage()
+    public override void ShowDamage()
     {
+        Debug.Log("showingDamage in Enemy Five");
         foreach (Material m in materials)
         {
             m.color = Color.white;
@@ -49,7 +57,7 @@ public class Enemy_5 : Enemy
         damageDoneTime = Time.time + showDamageDuration;
     }
 
-    void UnShowDamage()
+    public override void UnShowDamage()
     {
         for (int i = 0; i < materials.Length; i++)
         {

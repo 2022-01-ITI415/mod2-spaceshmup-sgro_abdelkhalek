@@ -71,6 +71,7 @@ public class Enemy : MonoBehaviour {
 
     private void OnCollisionEnter(Collision coll)
     {
+        Debug.Log("OnCollisionEnter");
         GameObject otherGO = coll.gameObject;
         switch (otherGO.tag)
         {
@@ -107,8 +108,9 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    void ShowDamage()
+    public virtual void ShowDamage()
     {
+        Debug.Log("showingDamage in Enemy");
         foreach (Material m in materials)
         {
             m.color = Color.red;
@@ -117,7 +119,7 @@ public class Enemy : MonoBehaviour {
         damageDoneTime = Time.time + showDamageDuration;
     }
 
-    void UnShowDamage()
+    public virtual void UnShowDamage()
     {
         for (int i=0; i<materials.Length; i++)
         {
