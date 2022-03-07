@@ -24,14 +24,23 @@ public class Enemy_5 : Enemy
     void Update()
     {
         Vector3 heroPos = Hero.S.gameObject.transform.position;
-        
-        transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime * 7);
+        Vector3 tempPos = pos;
+        tempPos.x = heroPos.x;
+        tempPos.y = heroPos.y;
 
-        Vector3 pos = heroPos;
+        float step = speed * Time.deltaTime; // calculate distance to move
+        transform.position = Vector3.MoveTowards(transform.position, heroPos, step);
+
+        transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime * 7);
         
          if(showingDamage && Time.time > damageDoneTime)
         {
             UnShowDamage();
+        }
+
+         if (count == 3)
+        {
+            Destroy(gameObject);
         }
         
     }
