@@ -24,9 +24,6 @@ public class Enemy_5 : Enemy
     void Update()
     {
         Vector3 heroPos = Hero.S.gameObject.transform.position;
-        Vector3 tempPos = pos;
-        tempPos.x = heroPos.x;
-        tempPos.y = heroPos.y;
 
         float step = speed * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, heroPos, step);
