@@ -26,7 +26,7 @@ public class Enemy_5 : Enemy
         float step = speed * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, heroPos, step);
 
-        transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime * 7);
+        transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime * 6);
         
          if(showingDamage && Time.time > damageDoneTime)
         {
