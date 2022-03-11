@@ -6,18 +6,16 @@ public class Enemy_5 : Enemy
 {
     [Header("Set in Inspector: Enemy_5")]
 
-  
+
     private float timeStart; // Birth time for this Enemy_4
     private float duration = 4; // Duration of movement
     private float birthTime;
-    private int count;
 
     // Start is called before the first frame update
     void Start()
     {
-        count = 0;
         birthTime = Time.time;
-        
+
         InitMovement();
     }
     //This is the code needed to create the rotation required and gets the position of the hero
@@ -28,18 +26,12 @@ public class Enemy_5 : Enemy
         float step = speed * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, heroPos, step);
 
-        transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime * 7);
-        
-         if(showingDamage && Time.time > damageDoneTime)
+        transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime * 6);
+
+        if (showingDamage && Time.time > damageDoneTime)
         {
             UnShowDamage();
         }
-
-         if (count == 3)
-        {
-            Destroy(gameObject);
-        }
-        
     }
 
     void InitMovement()
