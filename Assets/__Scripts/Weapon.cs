@@ -101,7 +101,7 @@ public class Weapon : MonoBehaviour {
 
     public void Fire()
     {
-        Debug.Log("Weapon Fired:" + gameObject.name);
+        //Debug.Log("Weapon Fired:" + gameObject.name);
         // If this.gameObject is inactive, return
         if (!gameObject.activeInHierarchy) return;
         // If it hasn't been enough time between shots, return
