@@ -10,12 +10,10 @@ public class Enemy_5 : Enemy
     private float timeStart; // Birth time for this Enemy_4
     private float duration = 4; // Duration of movement
     private float birthTime;
-    private int count;
 
     // Start is called before the first frame update
     void Start()
     {
-        count = 0;
         birthTime = Time.time;
         
         InitMovement();
@@ -33,13 +31,7 @@ public class Enemy_5 : Enemy
          if(showingDamage && Time.time > damageDoneTime)
         {
             UnShowDamage();
-        }
-
-         if (count == 3)
-        {
-            Destroy(gameObject);
-        }
-        
+        }        
     }
 
     void InitMovement()
